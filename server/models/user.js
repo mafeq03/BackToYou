@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -9,7 +10,7 @@ const userSchema = new Schema ({
   location: String,
   profilePic: {
     type: String, 
-    default: 'http://wwwicon-art.info/wp-content/uploads/2017-cheshire-yin-yang-cats-etsy-portraits-of-delicate-cat-yin-yang.jpg',
+    default: 'https://cdn2.iconfinder.com/data/icons/space-8/512/Alien-512.png',
   },
   facebookID: String,
 })
