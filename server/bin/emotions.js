@@ -1,38 +1,44 @@
 const mongoose    = require('mongoose');
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGOLAB_GOLD_URI, {useMongoClient: true});
+mongoose.connect('mongodb://localhost/backtoyou', {useMongoClient: true});
 
 const Emotion = require('../models/emotions');
 
 const emotions = [
   {
+    id: 1,
     name: 'Happy',
-    image: ''
-  },
+    image: '../public/images/emotions/happy.png'  },
   {
+    id: 2,
     name: 'Joyful',
-    image: ''
+    image: '../public/images/emotions/joyful.png'
   },
   {
+    id: 3,
     name: 'Neutral',
-    image: ''
+    image: '../public/images/emotions/neutral.png'
   },
   {
+    id: 4,
     name: 'Anxious',
-    image: ''
+    image: '../public/images/emotions/anxious.png'
   },
   {
+    id: 5,
     name: 'Sad',
-    image: ''
+    image: '../public/images/emotions/sad.png'
   },
     {
+      id: 6,
     name: 'Stressed',
-    image: ''
+    image: '../public/images/emotions/stressed.png'
   },
   {
+    id: 7,
     name: 'Angry',
-    image: ''
+    image: '../public/images/emotions/angry.png'
   }
 ]
 
