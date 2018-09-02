@@ -12,7 +12,8 @@ function capitalize (val) {
 const userSchema = new Schema ({
   name: {
     type:String,
-    set: capitalize
+    set: capitalize,
+    required: true
   },
   email: String,  
   username: String,
@@ -24,7 +25,14 @@ const userSchema = new Schema ({
   },
 
   facebookID: String,
-})
+
+  entries: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Entry'
+  }]
+  
+});
+  
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
