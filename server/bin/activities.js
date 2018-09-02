@@ -47,7 +47,7 @@ const activities = [
     image: '../public/images/activities/gaming.png'
   },
   {
-    name: 'Homework/Studying',
+        name: 'Homework/Studying',
     image: '../public/images/activities/homework.png'
   },
   {

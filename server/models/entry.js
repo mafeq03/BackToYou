@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const entrySchema = new Schema ({
 //Date of entry - will be connected with calendar
@@ -11,7 +12,7 @@ userId:{
     required: true
   },
    //Actual emotion entry
-entry: {
+dailyRecord: {
     type: String,
     emotion:{
       type:Schema.Types.ObjectId,
@@ -28,7 +29,7 @@ entry: {
   //Comment - to add extra info to daily entry - aprox 500 characters in 200 words
    comment:{
     type: String,
-    maxlength: 3000,
+    maxlength: 500,
       }
     
   }

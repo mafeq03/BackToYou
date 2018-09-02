@@ -21,7 +21,7 @@ router.post('/new-entry', (req, res, next) =>{
   let newEntry = new Entry({
    dateCreated,
    userId,
-   entry,
+   dailyRecord,
    comment
  });
 
@@ -82,8 +82,8 @@ router.get('/edit', (req, res, next) =>{
 });
 //Route to edit entry post portion
 router.post('/edit/:id', (req, res, next) => {
-  const { dateCreated, userId, entry,comment } = req.body;
-  Entry.update({_id: req.query.entry_id}, { $set: {dateCreated, userId, entry,comment }}, { new: true })
+  const { dateCreated, userId, dailyRecord,comment } = req.body;
+  Entry.update({_id: req.query.entry_id}, { $set: {dateCreated, userId, dailyRecord,comment }}, { new: true })
   .then((entry) => {
     res.redirect('/entries');
   })
