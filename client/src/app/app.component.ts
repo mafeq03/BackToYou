@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SessionService } from "./services/session.service";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'client';
+  title:string = 'phone-app';
+  loggedin:boolean = false;
+  // title = 'client';
 }
