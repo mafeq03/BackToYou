@@ -2,6 +2,7 @@ const express  = require('express');
 const router   = express.Router();
 const mongoose = require('mongoose');
 
+//Route to view user profile
 router.get('/:id', (req, res, next) => {
   let userId = req.params.id;
   if (!/^[0-9a-fA-F]{24}$/.test(userId)) { 
@@ -52,21 +53,6 @@ router.post('/:id/edit', (req,res,next) =>{
   });
 });
 
-//Route to add current Treatments being used by user
-router.post('/treatments/add', (req, res, next) => {
-  const { name, date, time, comments } = req.body;
-  User.update({ _id: req.query.user_id }, { $push: { treatments: { name, date, time, comments }}})
-  .then(user => {
-    res.redirect('/profile/' + req.query.user_id);
-  })
-  .catch((error) => {
-    console.log(error);
-    next();
-  });
-});
-
-
-
 //Route to delete profile
 router.post('/:id/delete', (req,res,next) => {
   let userId = req.params.id;
@@ -84,5 +70,7 @@ router.post('/:id/delete', (req,res,next) => {
     next();
   });
 });
+
+
 
 module.exports = router;
