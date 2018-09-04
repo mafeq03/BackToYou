@@ -10,7 +10,8 @@ export class LoginComponent implements OnInit {
 
   formInfo:any = {
     username: '',
-    password: ''
+    password: '',
+    name: ''
   };
 
   user: any = false;
