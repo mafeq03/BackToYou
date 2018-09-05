@@ -1,5 +1,8 @@
 <form *ngIf="!user">
   <h2> Login or Signup </h2>
+  <label> name </label>
+  <input type="text" [(ngModel)]="formInfo.name" name="name"/>
+  <br>
   <label> Username </label>
   <input type="text" [(ngModel)]="formInfo.username" name="username"/>
   <br>

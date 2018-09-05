@@ -1,0 +1,10 @@
+img {
+    height:800px;
+    overflow: hidden;
+};
+
+.login {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
