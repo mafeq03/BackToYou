@@ -1,76 +1,58 @@
 const express  = require('express');
 const router   = express.Router();
 const mongoose = require('mongoose');
-
+//User Model
+const User    = require('../models/user.js');
 //Route to view user profile
-router.get('/:id', (req, res, next) => {
-  let userId = req.params.id;
-  if (!/^[0-9a-fA-F]{24}$/.test(userId)) { 
-    return res.status(404).render('not-found');
-  }
-  User.findOne({'_id': userId})
-     .then(user => {
-      if (!user) {
-          return res.status(404).render('not-found');
-      }
-      res.render("profile/profile", { user });
-    })
-    .catch(next);
+router.get('/user/:id', (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
+}
+  User.findById(req.params.id)
+  .then(user=>  {res.status(200).json(user)})
+  .catch (err => {res.status(500).json(err)})
 });
 
 //Route to edit profile - render profile editing page
-router.get('/:id/edit', (req, res, next) => {
-  let userId = req.params.id;
-  if(!userId){
-    console.log(userId + 'This user does not exist');
-    return res.status(404).render('not-found');
-  }
-  User.findById(userId)
-  .then(user =>{
-  if(!userId){
-     console.log(userId + 'This user does not exist');
-     return res.status(404).render('not-found');
- }
-    res.render("profile/editProfile", {user});
+router.get('/user/:id', (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
+}
+const updates = {
+  name,
+  email, 
+  username,
+  password,
+  location,
+  profilePic,
+  entries
+} = req.body;
+
+User.findByIdAndUpdate(req.params.id, updates)
+  .then(user => {
+      res.json({
+          message: 'Profile has been updated successfully'
+      });
   })
-  .catch(err => {
-    console.log('There is an error', err);
-    next();
-  });
-});
-//Post portion to edit and pass new information
-router.post('/:id/edit', (req,res,next) =>{
-  let userId = req.params.id;
-  const {name, email, username, location, profilePic} = req.body;
-  User.update({_id: userId},{$set:{name, email, username, location, profilePic}},{new: true})
-  .then((user) =>{
-    console.log(user.name);
-    res.redirect('/profile');
-  })
-  .catch((err) =>{
-    console.log(err);
-    next();
-  });
-});
+  .catch(error => next(error))
+})
 
 //Route to delete profile
-router.post('/:id/delete', (req,res,next) => {
-  let userId = req.params.id;
-  User.findByIdAndRemove(userId)
-  .then((user) => {
-    if(!userId){
-      console.log(userId + 'This user does not exist');
-      return res.status(404).render('not-found');
+router.delete('/user/:id', (req, res, next) => {
+  if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
   }
-    console.log('Deletion Completed');
-    res.redirect('/');
+
+  User.remove({ _id: req.params.id })
+  .then(message => {
+    return res.json({
+      message: 'User Profile has been deleted!'
+    });
   })
-  .catch((err)=>{
-    console.log('Could not delete profile', err);
-    next();
-  });
+  .catch(error => next(error))
 });
-
-
 
 module.exports = router;
