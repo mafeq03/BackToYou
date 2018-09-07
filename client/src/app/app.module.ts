@@ -9,12 +9,22 @@ import { FormsModule } from "@angular/forms";
 import { SessionService } from "./services/session.service";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { NewEntryComponent } from './new-entry/new-entry.component';
+import { AllEntriesComponent } from './all-entries/all-entries.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { EmotionsComponent } from './emotions/emotions.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    WelcomeComponent,
+    NewEntryComponent,
+    AllEntriesComponent,
+    ActivitiesComponent,
+    EmotionsComponent,
 
   ],
   imports: [
