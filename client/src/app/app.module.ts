@@ -14,6 +14,7 @@ import { NewEntryComponent } from './new-entry/new-entry.component';
 import { AllEntriesComponent } from './all-entries/all-entries.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { EmotionsComponent } from './emotions/emotions.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { EmotionsComponent } from './emotions/emotions.component';
     AllEntriesComponent,
     ActivitiesComponent,
     EmotionsComponent,
+    UserProfileComponent,
 
   ],
   imports: [
