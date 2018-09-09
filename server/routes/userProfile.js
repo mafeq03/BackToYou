@@ -9,6 +9,7 @@ router.get('/user/:id', (req, res, next) => {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;
 }
+
   User.findById(req.params.id)
   .then(user=>  {res.status(200).json(user)})
   .catch (err => {res.status(500).json(err)})
