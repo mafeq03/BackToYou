@@ -15,6 +15,7 @@ import { AllEntriesComponent } from './all-entries/all-entries.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { EmotionsComponent } from './emotions/emotions.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SingleEntryComponent } from './single-entry/single-entry.component';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ActivitiesComponent,
     EmotionsComponent,
     UserProfileComponent,
-
+    SingleEntryComponent,
   ],
   imports: [
     BrowserModule,
