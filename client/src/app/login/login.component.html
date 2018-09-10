@@ -1,0 +1,49 @@
+<!-- <form *ngIf="!user">
+  <h2> Login or Signup </h2>
+  
+  <label> name </label>
+  <input type="text" [(ngModel)]="formInfo.name" name="name"/>
+  <br>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+  <br>
+  <button type="button" class="btn btn-dark" (click)="login()"> login </button>
+  <button type="button" class="btn btn-light" (click)="signup()"> signup </button>
+</form> -->
+
+<div *ngIf="user">
+  <h2> You are now logged in as {{ user.username }}!! </h2>
+  <p> Here's the user object </p>
+  <pre> {{ user | json }} </pre>
+  <p *ngIf="privateData"> Here's some data fetched from a protected API </p>
+  <pre> {{ privateData | json }} </pre>
+  <button (click)="logout()"> logout </button>
+  <button (click)="getPrivateData()"> Get private data </button>
+</div>
+
+<p class="error"> {{ error }} </p>
+
+
+<form class="bg-dark-opaque p-3" *ngIf="!user">
+  <h4 class="mb-4 text-center">Login / Signup</h4>
+  <div class="form-group">
+    <label>User Name</label>
+    <input class="form-control" placeholder="Type here" type="text" [(ngModel)]="formInfo.username" name="username"> </div>
+  <div class="form-group my-2">
+        <label>Name</label>
+        <input class="form-control" placeholder="Type here" type="text" [(ngModel)]="formInfo.name" name="name"> </div>
+  <div class="form-group my-2">
+    <label for="password">Password</label>
+    <div class="input-group">
+      <input type="password" class="form-control" id="inlineFormInputGroup" placeholder="password" [(ngModel)]="formInfo.password" name="password"> </div>
+  </div>
+  <button type="submit" class="btn mt-4 btn-outline-primary p-2 w-25 mx-4" (click)="login()">
+    <b>Log In</b>
+  </button>
+  <button type="submit" class="btn mt-4 btn-outline-primary p-2 w-25 mx-4" (click)="signup()">
+    <b>Sign Up</b>
+  </button>
+</form>
