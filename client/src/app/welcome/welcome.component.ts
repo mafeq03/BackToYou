@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-welcome',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  user: any;
+  error: String;
 
-  constructor() { }
+  constructor(private session: SessionService) {}
 
   ngOnInit() {
+    this.session.isLoggedIn()
+      .subscribe(
+        user => { this.user = user; },
+        err => { this.error = err; }
+      )
   }
 
 }

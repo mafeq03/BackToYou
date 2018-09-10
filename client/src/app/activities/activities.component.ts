@@ -1,3 +1,4 @@
+import { EntryService } from './../services/entry.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./activities.component.css']
 })
 export class ActivitiesComponent implements OnInit {
-
-  constructor() { }
+  activities:any=[];
+  constructor(private activity:EntryService) { }
 
   ngOnInit() {
   }

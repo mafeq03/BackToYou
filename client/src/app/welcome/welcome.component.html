@@ -1,3 +1,22 @@
-<p>
-  welcome works!
-</p>
+
+
+<div *ngFor="let user of users">
+    <h1>Welcome to Back to You, {{ user.name }}!</h1>
+    
+    <h2>Thank you for joining us.</h2>
+    <h3>Back to You is a <i>on the go</i> tool to keep track of your daily emotions in relation to your daily activities.</h3>
+ 
+    <p> As members of this fast paced world we know how quickly we can lose track as to how and why we find ourselves in our current mood.</p>
+    <p> By logging in your mood three times a day, we hope to provide you with solid personalized data so you can recognize what activities enhance or dimish the quality of your day</p>
+<br>
+    <a [routerLink]="['user', user._id]"> View my Profile </a>
+
+  </div>
+  <br>
+  <div *ngFor="let entry of entries">
+       <a [routerLink]="['entry', entry._id]"> Create Entry </a><br><br>
+       <a [routerLink]="['entries', entries._id]"> View Entries </a><br><br>
+       <a [routerLink]="['entries', entries._id]"> View my Data </a><br><br>
+    </div>
+  
+      

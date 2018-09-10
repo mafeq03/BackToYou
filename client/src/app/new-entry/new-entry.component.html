@@ -1,3 +1,26 @@
-<p>
-  new-entry works!
-</p>
+<h2> How do you feel today? </h2>
+<p>Create a new entry by recording how you are feeling now and the activities that influenced this</p>
+
+<form>
+  <fieldset>
+    <legend> New Entry </legend>
+    <label> Date: </label>
+    <input type="datetime" [(ngModel)]="newEntry.date" name="date" required />
+
+    <label> Emotion: </label>
+    <input type="text" [(ngModel)]="newEntry.dailyRecord.emotion" name="emotion" required />
+
+    
+    <label> Activities: </label>
+    <input type="text" [(ngModel)]="newEntry.dailyRecord.activities" name="activities" required />
+    
+    <label> Comment: </label>
+    <input type="text" [(ngModel)]="newEntry.comment" name="comment" />
+   
+  
+  </fieldset>
+  <button (click)="submit()"> submit </button>
+</form>
+<a [routerLink]="['']"> Home </a>
+
+  
