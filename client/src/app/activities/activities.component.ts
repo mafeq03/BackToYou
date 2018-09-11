@@ -11,6 +11,10 @@ export class ActivitiesComponent implements OnInit {
   constructor(private activity:EntryService) { }
 
   ngOnInit() {
+    console.log(this.activity);
+    this.activity.getEntries()
+    .subscribe((activities) => {
+      this.activity = activities;
+    });
   }
-
 }

@@ -69,9 +69,21 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 //Routes
 const index = require('./routes/index');
-const authApi = require('./routes/auth-routes');
 app.use('/', index);
+
+const authApi = require('./routes/auth-routes');
 app.use('/', authApi);
+
+const entryRoutes = require('./routes/entry');
+app.use('/entries', entryRoutes);
+
+// const graphRoutes = require('./routes/graphs');
+// app.use('/graph', graphRoutes);
+
+const userRoutes = require('./routes/userProfile');
+app.use('/user', userRoutes);
+
+
 app.use(function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });

@@ -13,19 +13,17 @@ userId:{
   },
    //Actual emotion entry
 dailyRecord: {
-    type: String,
-    emotion:{
+      emotion:{
       type:Schema.Types.ObjectId,
       ref: 'Emotion',
-      required: true
-    },
+      required: true,
+      },
   //Array of activities 
-    activities:[{
+    activity:[{
       type: Schema.Types.ObjectId,
       ref:'Activity',
       required: true
     }],
-
   //Comment - to add extra info to daily entry - aprox 500 characters in 200 words
    comment:{
     type: String,
@@ -36,4 +34,4 @@ dailyRecord: {
 
 });
 const Entry = mongoose.model('Entry', entrySchema);
-module.exports = journalEntry;
+module.exports = Entry;

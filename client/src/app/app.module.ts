@@ -4,7 +4,7 @@ import { RouterModule } from "@angular/router";
 import { routes } from './app.routing';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from "@angular/forms";
-import { FileSelectDirective } from "ng2-file-upload";
+// import { FileSelectDirective } from "ng2-file-upload";
 
 import { SessionService } from "./services/session.service";
 import { EntryService } from "./services/entry.service";
@@ -32,7 +32,7 @@ import { LogoutComponent } from './logout/logout.component';
     EmotionsComponent,
     UserProfileComponent,
     SingleEntryComponent,
-    FileSelectDirective,
+    // FileSelectDirective,
     LogoutComponent,
   ],
   imports: [
